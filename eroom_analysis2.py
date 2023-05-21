@@ -143,12 +143,12 @@ def main():
 
     date_df_dict = {}
     cnt = 0
-    for cur_file in os.listdir("data"):
+    for cur_file in os.listdir("."):
         try:
             cur_date = re.search("eroom_time__(.*)_detail__(.*).csv", cur_file, re.IGNORECASE).group(1)
         except Exception as e:
             continue
-        cur_df = pd.read_csv("data/" + cur_file)
+        cur_df = pd.read_csv(cur_file)
         cur_df["cur_date"] = cur_date
         date_df_dict[cur_date] = cur_df
 
