@@ -1,5 +1,5 @@
 # Lianjia-eroom-finder
-Crawler / Analysis of eroom data (链家爬虫/数据分析; 17年前成交价)
+Crawler / Analysis of eroom data (链家爬虫/数据分析; 2017年前成交价)
 
 ## 链家房价爬虫和数据分析
 这是一个使用 Python 编写的链家房价爬虫和数据分析脚本。通过这个脚本，您可以爬取链家网站上的房屋信息，并进行数据分析和可视化。
@@ -23,4 +23,36 @@ Crawler / Analysis of eroom data (链家爬虫/数据分析; 17年前成交价)
 相信对于很多人而言，爬虫本身并不是困难的问题，但爬虫只能获取最新挂牌价格信息，并不能直接获取历史信息。
 
 ## 使用方法
+
+1. 安装所需的依赖库。
+
+```
+pip install requirement.txt
+```
+
+2. 运行爬虫
+
+```
+python eroom_finder.py
+```
+
+3. 运行数据分析：平均价格统计
+
+```
+python eroom_analysis.py
+```
+脚本将会将爬取的数据保存为 final_community_eroom_stats_size_*.csv 文件。
+
+4. 运行数据分析：房价变化统计
+
+```
+python eroom_analysis2.py
+```
+脚本将会将爬取的数据保存为 stats_info_updated_*.csv 文件。
+
+## 历史成交价
+
+数据可见history_data目录
+
+请注意：本项目并不能保证历史成交价的准确性，本人初衷是帮助有相关需要的人，所以会在力所能及范围内保证准确，但不愿意（作为一个free项目，也不应该）承担法律或相关责任，如需使用请自行甄别相互印证。
 
