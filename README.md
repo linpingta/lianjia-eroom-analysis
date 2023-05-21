@@ -38,7 +38,8 @@ pip install bs4
 ```
 python eroom_finder.py
 ```
-之后你会看到结果如data目录中
+之后你会看到结果如eroom_time__20221227_detail__1672138021__*.csv
+
 
 3. 运行数据分析：平均价格统计
 
@@ -56,7 +57,7 @@ python eroom_analysis2.py
 
 ## 历史成交价
 
-数据可见history_data目录
+数据可见web_old_eroom_chengjiao_before_2018_new.csv
 
 请注意：本项目并不能保证历史成交价的准确性，本人初衷是帮助有相关需要的人，所以会在力所能及范围内保证准确，但不愿意（作为一个free项目，也不应该）承担法律或相关责任，如需使用请自行甄别相互印证。
 
