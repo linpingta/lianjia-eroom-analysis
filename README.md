@@ -38,9 +38,7 @@ pip install bs4
 ```
 python eroom_finder.py
 ```
-之后你会看到结果如下
-
-![Uploading image.png…]()
+之后你会看到结果如data目录中
 
 3. 运行数据分析：平均价格统计
 
