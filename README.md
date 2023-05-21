@@ -27,7 +27,10 @@ Crawler / Analysis of eroom data (链家爬虫/数据分析; 2017年前成交价
 1. 安装所需的依赖库。
 
 ```
-pip install requirement.txt
+pip install pandas
+pip install lxml
+pip install bs4
+
 ```
 
 2. 运行爬虫
@@ -35,6 +38,9 @@ pip install requirement.txt
 ```
 python eroom_finder.py
 ```
+之后你会看到结果如下
+
+![Uploading image.png…]()
 
 3. 运行数据分析：平均价格统计
 
@@ -55,4 +61,13 @@ python eroom_analysis2.py
 数据可见history_data目录
 
 请注意：本项目并不能保证历史成交价的准确性，本人初衷是帮助有相关需要的人，所以会在力所能及范围内保证准确，但不愿意（作为一个free项目，也不应该）承担法律或相关责任，如需使用请自行甄别相互印证。
+
+
+## 注意事项
+请尊重链家网站的使用规则，避免过于频繁地进行爬取操作。
+由于网站结构可能会发生变化，脚本在未来的某些时刻可能需要进行适当的修改以适应新的页面布局。
+
+## 贡献
+欢迎对本项目提出改进建议和提交贡献代码。如果您发现了 bug 或者有新功能的想法，请在 GitHub 上提交 issue，或者发送邮件到linpingta@163.com
+
 
