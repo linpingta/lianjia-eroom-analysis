@@ -1,6 +1,10 @@
 # lianjia-eroom-crawler
 Crawler / Analysis of eroom data (链家爬虫/数据分析; 2017年前成交价)
 
+[![GitHub stars](https://img.shields.io/github/stars/linpingta/easy-tools-for-hand.svg?style=social&label=Star)](https://github.com/linpingta/lianjia-eroom-crawler/stargazers)
+[![Fork](https://img.shields.io/badge/-Fork-green?logo=github&style=for-the-badge)](https://github.com/linpingta/lianjia-eroom-crawler/fork)
+[![Clone](https://img.shields.io/badge/Clone-HTTPS-blue.svg)](https://github.com/linpingta/lianjia-eroom-crawler.git)
+
 ## 链家房价爬虫和数据分析
 这是一个使用 Python 编写的链家房价爬虫和数据分析脚本。通过这个脚本，您可以爬取链家网站上的房屋信息，并进行数据分析和可视化。
 
