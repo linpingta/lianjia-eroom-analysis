@@ -1,7 +1,7 @@
 # lianjia-eroom-crawler
 Crawler / Analysis of eroom data (链家爬虫/数据分析; 2017年前成交价)
 
-[![GitHub stars](https://img.shields.io/github/stars/linpingta/easy-tools-for-hand.svg?style=social&label=Star)](https://github.com/linpingta/lianjia-eroom-crawler/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/linpingta/lianjia-eroom-crawler.svg?style=social&label=Star)](https://github.com/linpingta/lianjia-eroom-crawler/stargazers)
 [![Fork](https://img.shields.io/badge/-Fork-green?logo=github&style=for-the-badge)](https://github.com/linpingta/lianjia-eroom-crawler/fork)
 [![Clone](https://img.shields.io/badge/Clone-HTTPS-blue.svg)](https://github.com/linpingta/lianjia-eroom-crawler.git)
 
