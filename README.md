@@ -68,25 +68,43 @@ pip install bs4
 
 2. 运行爬虫
 
+无参数运行，默认处理beijing，各个区数据，比如东城区
 ```
-python eroom_finder.py
+python eroom_finder.py --city_name bj
+```
+
+指定参数运行：
+(1) 指定其它城市
+(2) 指定特定区域（比如四惠）
+```
+python eroom_finder.py --city_name bj --area_name small
 ```
 之后你会看到结果如eroom_time__20221227_detail__1672138021__*.csv
 
 
-3. 运行数据分析：平均价格统计
+3. 运行数据分析：小区平均价格统计
 
 ```
-python eroom_analysis.py
+python eroom_price_adjust_tracker.py
 ```
 脚本将会将爬取的数据保存为 final_community_eroom_stats_size_*.csv 文件， *为软件运行的YYYYMMDD。
+
+基于结果进行进一步的可视化分析，如
+
+<img width="730" alt="image" src="https://github.com/linpingta/lianjia-eroom-crawler/assets/2771082/8903e445-39c0-4086-9a1b-3c71315bd06d">
+
 
 4. 运行数据分析：房价变化统计
 
 ```
-python eroom_analysis2.py
+python eroom_district_comparer.py
 ```
 脚本将会将爬取的数据保存为 stats_info_updated_*.csv 文件。
+
+基于历史数据，可以方便分析出特定房源的挂牌价变化情况，挂牌上架下架（重新上架）时间
+
+<img width="717" alt="image" src="https://github.com/linpingta/lianjia-eroom-crawler/assets/2771082/48ebcadd-acb8-488e-af25-46fb9f908c9c">
+
 
 ## 历史成交价
 
