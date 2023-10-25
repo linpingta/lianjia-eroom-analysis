@@ -31,7 +31,7 @@ def get_house_info(start_url, sess):
     return house_num
 
 
-def get_info_dic(info, area):
+def get_info_dic(info, area, city_name):
     info_dic = {
         'area': area,
         'title': re_match('target="_blank">(.*?)</a><!--', str(info)),
@@ -44,7 +44,7 @@ def get_info_dic(info, area):
     hhid = re.findall('data-housecode="(.*?)"', str(info))[0]
     info_dic.update({
         'hhid': hhid,
-        'link': f'https://bj.lianjia.com/ershoufang/{hhid}.html',
+        'link': f'https://{city_name}.lianjia.com/ershoufang/{hhid}.html',
     })
     icons = re.findall('class="houseIcon"></span>(.*?)</div>', str(info))[0].strip().split('|')
     info_dic.update({
@@ -58,14 +58,14 @@ def get_info_dic(info, area):
     return info_dic
 
 
-def crawl_data(sess, real_dict):
+def crawl_data(sess, real_dict, city_name):
     total_num = 0
     err_num = 0
     data_info_list = []
-    url = 'https://bj.lianjia.com/ershoufang/{}/pg{}/'
+    url = 'https://%s.lianjia.com/ershoufang/{}/pg{}/' % city_name
 
     for key_, value_ in real_dict.items():
-        start_url = 'https://bj.lianjia.com/ershoufang/{}/'.format(value_)
+        start_url = ('https://%s.lianjia.com/ershoufang/{}/' % city_name).format(value_)
         house_num = get_house_info(start_url, sess)
         print('{}: 二手房源共计「{}」套'.format(key_, house_num))
         time.sleep(2)
@@ -76,7 +76,7 @@ def crawl_data(sess, real_dict):
             info_collect = soup.find_all(class_="info clear")
             for info in info_collect:
                 try:
-                    info_dic = get_info_dic(info, key_)
+                    info_dic = get_info_dic(info, key_, city_name)
                     data_info_list.append(info_dic)
                 except Exception as e:
                     traceback.print_exc()
@@ -105,33 +105,45 @@ def main():
     # add parameter if needed
     parser.add_argument('-v', '--version', help='version of code', action='version', version='%(prog)s 1.0')
     parser.add_argument('--area_name', help='area to fetch', type=str, default='all')
+    parser.add_argument('--city_name', help='city to fetch', type=str, default='bj')
+
     args = parser.parse_args()
 
-    # all beijing
-    area_dic = {'朝阳区': 'chaoyang',
-                '海淀区': 'haidian',
-                '西城区': 'xicheng',
-                '东城区': 'dongcheng',
-                '通州区': 'tongzhou',
-                '昌平区': 'changping',
-                '大兴区': 'daxing',
-                '丰台区': 'fengtai'
-    }
-    area_dic_small = {
-        '五道口': 'wudaokou',
-    }
+    city_name = args.city_name
+
+    area_dic = {}
+    area_dic_small = {}
+    if city_name == "bj":
+        # all beijing
+        area_dic = {'朝阳区': 'chaoyang',
+                    '海淀区': 'haidian',
+                    '西城区': 'xicheng'
+        }
+        area_dic_small = {
+            '五道口': 'wudaokou',
+        }
+    elif city_name == "hz":
+        area_dic = {
+            '钱塘区': 'qiantangqu'
+                    }
+        area_dic_small = {
+            # define as real need
+        }
+    else:
+        print("no area dic defined in city:%s, fill it first" % city_name)
+        exit(1)
 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36',
-        'Referer': 'https://bj.lianjia.com/ershoufang/'}
+        'Referer': 'https://%s.lianjia.com/ershoufang/' % city_name}
     sess = requests.session()
-    sess.get('https://bj.lianjia.com/ershoufang/', headers=headers)
+    sess.get('https://%s.lianjia.com/ershoufang/' % city_name, headers=headers)
 
     real_dict = area_dic
     if args.area_name == 'small':
         real_dict = area_dic_small
 
-    data_info_list = crawl_data(sess, real_dict)
+    data_info_list = crawl_data(sess, real_dict, city_name)
     data = pd.DataFrame(data_info_list)
     data.to_csv("eroom_time__%s_detail__%s__area_%s.csv" % (datetime.datetime.now().strftime('%Y%m%d'), int(time.time()), len(area_dic.values())), encoding='utf-8-sig')
 
