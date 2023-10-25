@@ -1,6 +1,9 @@
 # lianjia-eroom-crawler
 Crawler / Analysis of eroom data (链家爬虫/数据分析; 2017年前成交价)
 
+### 更新
+2023-10-25: 为方便数据管理，原先eroom_xxxx_.csv等历史报价快照，被分别移入bj_data, hz_data等目录，历史数据持续提供中
+
 [![GitHub stars](https://img.shields.io/github/stars/linpingta/lianjia-eroom-crawler.svg?style=social&label=Star)](https://github.com/linpingta/lianjia-eroom-crawler/stargazers)
 [![Fork](https://img.shields.io/badge/-Fork-green?logo=github&style=for-the-badge)](https://github.com/linpingta/lianjia-eroom-crawler/fork)
 [![Clone](https://img.shields.io/badge/Clone-HTTPS-blue.svg)](https://github.com/linpingta/lianjia-eroom-crawler.git)
@@ -46,6 +49,11 @@ https://zhuanlan.zhihu.com/p/637813923
 ## 重要：原始历史数据
 相信对于很多人而言，爬虫本身并不是困难的问题，但爬虫只能获取最新挂牌价格信息，并不能直接获取历史信息。本项目不仅提供了获取最新信息的方式，也提供了历史报价信息，方便使用者参考.
 参见项目目录里 "_20220128_" 等。
+
+```
+bj_data/eroom_xxx_.csv :  北京历史报价快照
+hz_data/eroom_xxx_.csv :  北京历史报价快照
+```
 
 ## 使用方法
 
