@@ -2,7 +2,7 @@
 Crawler / Analysis of eroom data (链家爬虫/数据分析; 2017年前成交价)
 
 ### 更新
-2023-10-25: 为方便数据管理，原先eroom_xxxx_.csv等历史报价快照，被分别移入bj_data（beijing）, hz_data(hangzhou), sh_data(shanghai)等目录，历史数据持续提供中
+2023-10-25: 为方便数据管理，原先eroom_xxxx_.csv等历史报价快照，被分别移入bj_data(beijing), hz_data(hangzhou), sh_data(shanghai), sz_data(shenzhen)等目录，历史数据持续提供中
 
 [![GitHub stars](https://img.shields.io/github/stars/linpingta/lianjia-eroom-crawler.svg?style=social&label=Star)](https://github.com/linpingta/lianjia-eroom-crawler/stargazers)
 [![Fork](https://img.shields.io/badge/-Fork-green?logo=github&style=for-the-badge)](https://github.com/linpingta/lianjia-eroom-crawler/fork)
@@ -40,7 +40,7 @@ https://zhuanlan.zhihu.com/p/637813923
 
 
 ### 适用范围
-本项目默认行为对北京链家数据爬虫，但很容易修改后支持其它地区，如**杭州**，武汉等地区爬虫，例如 "hangzhou_eroom_time__20220115_detail__1642235044__area_1.csv".
+本项目默认行为对北京链家数据爬虫，但很容易修改后支持其它地区，如**杭州**，武汉，深圳等地区爬虫（上海相对特殊一点，需要一些小改动），例如 "hangzhou_eroom_time__20220115_detail__1642235044__area_1.csv".
 简单修改代码里的:
 ```
 'https://bj.lianjia.com/ershoufang/' -> 'https://hz.lianjia.com/ershoufang/'
