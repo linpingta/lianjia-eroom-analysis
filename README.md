@@ -3,6 +3,7 @@ Crawler / Analysis of eroom data (链家爬虫/数据分析; 2017年前成交价
 
 ### 更新
 2023-12-08: 基于提供数据，可以分析北京22/23年房价变化，如 https://zhuanlan.zhihu.com/p/671213363 
+
 2023-10-25: 为方便数据管理，原先eroom_xxxx_.csv等历史报价快照，被分别移入bj_data(beijing 北京), hz_data(hangzhou 杭州), sh_data(shanghai 上海), sz_data(shenzhen 深圳), gz_data(guangzhou 广州)等目录，历史数据持续提供中
 
 [![GitHub stars](https://img.shields.io/github/stars/linpingta/lianjia-eroom-crawler.svg?style=social&label=Star)](https://github.com/linpingta/lianjia-eroom-crawler/stargazers)
