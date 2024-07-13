@@ -25,8 +25,8 @@ def re_match(re_pattern, string, errif=None):
         return errif
 
 
-def get_house_info(start_url, sess):
-    html = sess.get(start_url).text
+def get_house_info(start_url, sess, headers):
+    html = sess.get(start_url, headers=headers, allow_redirects=True, timeout=3).text
     house_num = re.findall('共找到<span> (.*?) </span>套.*二手房', html)[0].strip()
     return house_num
 
@@ -58,7 +58,7 @@ def get_info_dic(info, area, city_name):
     return info_dic
 
 
-def crawl_data(sess, real_dict, city_name):
+def crawl_data(sess, real_dict, city_name, headers):
     total_num = 0
     err_num = 0
     data_info_list = []
@@ -66,12 +66,12 @@ def crawl_data(sess, real_dict, city_name):
 
     for key_, value_ in real_dict.items():
         start_url = ('https://%s.lianjia.com/ershoufang/{}/' % city_name).format(value_)
-        house_num = get_house_info(start_url, sess)
+        house_num = get_house_info(start_url, sess, headers)
         print('{}: 二手房源共计「{}」套'.format(key_, house_num))
         time.sleep(2)
         total_page = int(math.ceil(min(3000, int(house_num)) / 30.0))
         for i in tqdm(range(total_page), desc=key_):
-            html = sess.get(url.format(value_, i+1)).text
+            html = sess.get(url.format(value_, i+1), headers=headers, allow_redirects=True, timeout=3).text
             soup = BeautifulSoup(html, 'lxml')
             info_collect = soup.find_all(class_="info clear")
             for info in info_collect:
@@ -143,7 +143,7 @@ def main():
     if args.area_name == 'small':
         real_dict = area_dic_small
 
-    data_info_list = crawl_data(sess, real_dict, city_name)
+    data_info_list = crawl_data(sess, real_dict, city_name, headers)
     data = pd.DataFrame(data_info_list)
     data.to_csv("eroom_time__%s_detail__%s__area_%s.csv" % (datetime.datetime.now().strftime('%Y%m%d'), int(time.time()), len(area_dic.values())), encoding='utf-8-sig')
 
